@@ -1,0 +1,199 @@
+:root {
+  color-scheme: light;
+  --ink: #17211d;
+  --muted: #5d6b64;
+  --paper: #eef3f0;
+  --card: #ffffff;
+  --line: #d5e0da;
+  --accent: #1f6f5b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+main {
+  height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark { width: 36px; height: 36px; flex: none; }
+
+h1 { margin: 0; font-size: 1.15rem; font-weight: 650; letter-spacing: -0.02em; }
+.zone { margin: 1px 0 0; color: var(--muted); font-size: 0.78rem; }
+
+#thread {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 2px;
+  scrollbar-width: none;
+}
+
+#thread::-webkit-scrollbar { display: none; }
+
+#thread:empty { display: none; }
+#thread:not(:empty) { flex: 1; }
+
+.art {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.art svg { width: min(220px, 46vw); height: auto; }
+
+#thread:not(:empty) + .art {
+  flex: none;
+}
+
+#thread:not(:empty) + .art svg { width: 72px; }
+
+article {
+  max-width: 88%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+article.user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  white-space: pre-wrap;
+}
+
+article.agent {
+  align-self: flex-start;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+article.agent p {
+  margin: 0 0 6px;
+}
+
+article.agent p:last-child {
+  margin-bottom: 0;
+}
+
+article.agent ul, article.agent ol {
+  margin: 4px 0 6px 18px;
+  padding: 0;
+}
+
+article.agent li {
+  margin-bottom: 3px;
+}
+
+article.agent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 6px 0;
+  font-size: 0.88rem;
+}
+
+article.agent th, article.agent td {
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  text-align: left;
+}
+
+article.agent th {
+  background: var(--paper);
+  font-weight: 600;
+}
+
+article.agent code {
+  background: var(--paper);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: monospace;
+}
+
+article.agent pre {
+  background: var(--paper);
+  padding: 8px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 6px 0;
+}
+
+.suggestions, form { display: flex; gap: 6px; }
+
+.suggestions { flex-wrap: wrap; }
+
+.suggestions button, textarea {
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.suggestions button {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+form {
+  align-items: flex-end;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-height: 40px;
+  max-height: 140px;
+  overflow-y: hidden;
+  line-height: 1.35;
+}
+
+form button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: none;
+}
+
+form button svg { width: 18px; height: 18px; }
+form button:disabled { opacity: 0.6; cursor: wait; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

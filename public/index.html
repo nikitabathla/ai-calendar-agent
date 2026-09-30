@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Calendar Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="6" y="8" width="36" height="32" rx="6" fill="#1f6f5b" />
+          <path d="M6 18h36" stroke="#f4f7f5" stroke-width="2" />
+          <rect x="14" y="4" width="3" height="8" rx="1.5" fill="#143f34" />
+          <rect x="31" y="4" width="3" height="8" rx="1.5" fill="#143f34" />
+          <circle cx="17" cy="28" r="2" fill="#d7f3ea" />
+          <circle cx="24" cy="28" r="2" fill="#d7f3ea" />
+          <circle cx="31" cy="28" r="2" fill="#f2c14e" />
+          <path d="M16 34h16" stroke="#d7f3ea" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <div>
+          <h1>AI Calendar Assistant</h1>
+          <p id="zone" class="zone"></p>
+        </div>
+      </header>
+
+      <section id="thread" aria-live="polite"></section>
+
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 220 160">
+          <ellipse cx="110" cy="146" rx="54" ry="7" fill="#d5e0da" />
+          <rect x="58" y="28" width="104" height="96" rx="16" fill="#1f6f5b" />
+          <rect x="58" y="28" width="104" height="26" rx="16" fill="#143f34" />
+          <rect x="58" y="42" width="104" height="12" fill="#143f34" />
+          <rect x="78" y="16" width="8" height="20" rx="4" fill="#f2c14e" />
+          <rect x="134" y="16" width="8" height="20" rx="4" fill="#f2c14e" />
+          <circle cx="96" cy="78" r="5" fill="#f4f7f5" />
+          <circle cx="124" cy="78" r="5" fill="#f4f7f5" />
+          <path d="M98 96c6 8 18 8 24 0" fill="none" stroke="#f4f7f5" stroke-width="3" stroke-linecap="round" />
+          <circle cx="168" cy="52" r="14" fill="#f2c14e" />
+          <path d="M168 42v6M168 56v6M158 52h6M172 52h6" stroke="#143f34" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <div class="suggestions">
+        <button type="button" data-message="What's on my calendar tomorrow?">Tomorrow</button>
+        <button type="button" data-message="Am I free tomorrow at 4 PM for 30 minutes?">Free at 4?</button>
+        <button type="button" data-message="Schedule a 30-minute meeting tomorrow at 5 PM called Design Review.">Book 30 min</button>
+      </div>
+
+      <form id="composer">
+        <label class="sr-only" for="message">Message</label>
+        <textarea id="message" rows="1" placeholder="Ask about your calendar" required></textarea>
+        <button type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </form>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

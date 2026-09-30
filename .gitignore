@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Google API credentials & tokens
+credentials.json
+token.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+
+.tmp/
